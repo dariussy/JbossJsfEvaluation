@@ -63,7 +63,7 @@ public class SessionBean implements Serializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "logout";
+		return "login";
 	}
 
 	public HttpServletRequest getRequest() {

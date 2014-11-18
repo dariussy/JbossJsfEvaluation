@@ -10,13 +10,16 @@ xmlns:f="http://java.sun.com/jsf/core"
 
 		<ul class="nav navbar-nav navbar-avatar pull-right">
 			<li class="dropdown"><a href="#" class="dropdown-toggle"
-				data-toggle="dropdown"> <span class="hidden-sm-only">Mika
-						Sokeil</span> <span class="thumb-small avatar inline"><img
-						src="images/avatar.jpg" alt="Mika Sokeil" class="img-circle" /></span> <b
+				data-toggle="dropdown"> <span class="hidden-sm-only">Deni
+						Jo</span> <span class="thumb-small avatar inline"></span> <b
 					class="caret hidden-sm-only"></b>
 			</a>
 				<ul class="dropdown-menu">
-					<li><a href="signin.html">Logout</a></li>
+					<li>
+					<h:form><h:commandLink id="logout" 
+							action="#{utlisControlleur.logout}" value="logout" /></h:form>
+					
+					</li>
 				</ul></li>
 		</ul>
 

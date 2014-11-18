@@ -21,13 +21,23 @@
 	  
 	  
 	<navigation-rule>
-		<from-view-id>listStagiaire.xhtml</from-view-id>
+		<from-view-id></from-view-id>
 		<navigation-case>
-			<from-outcome>editStagiaire</from-outcome>
-			<to-view-id>editStagiaire.xhtml</to-view-id>
+			<from-outcome>logout</from-outcome>
+			<to-view-id>/pages/public/login.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	
+	
+	 <navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-action>#{utlisControlleur.logout}</from-action>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/pages/public/login.xhtml</to-view-id>
+		</navigation-case>
+    </navigation-rule>	
 
 
 	<navigation-rule>

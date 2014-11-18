@@ -15,15 +15,9 @@
 
 			<p>User</p>
 
-			<h:form id="reg">
+			<h:form id="reg" >
 			
-			<div class="row">
-                <label class="col col-lg-3 control-label">Password</label>
-                <div class="col col-lg-8">
-                  <input name="password" placeholder="Password" class="bg-focus" type="password"/>
-                  <div class="line line-dashed m-t-large"></div>
-                </div>
-              </div>
+			
 				<h:inputHidden id="id" value="#{stagiaireControlleur.stagiaire.id}" />
 				<h:panelGrid columns="3" columnClasses="titleCell">
 					<h:outputLabel for="name" value="Name:" />
@@ -52,7 +46,7 @@
 						requiredMessage="#{msg['data.required']}"
 						converterMessage="ConvertMessage"
 						validatorMessage="validateMessage">
-						<f:convertDateTime pattern="dd/mm/yyyy" />
+						<f:convertDateTime pattern="dd/MM/yyyy" />
 					</h:inputText>
 					<h:message for="name" errorClass="invalid" />
 

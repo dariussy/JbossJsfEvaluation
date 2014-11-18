@@ -1,38 +1,54 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-	  xmlns:f="http://java.sun.com/jsf/core" 
-	  xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
-<h:head>
-	<link href="/evaluationTP/bootstrap/css/bootstrap.css" rel="stylesheet" />
-	<link href="/evaluationTP/bootstrap/js/bootstrap.js" rel="stylesheet" />
-</h:head>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
 <h:body>
-    <p>Connexion pour accèder au site d'évaluation :</p>
-        <form class="form-horizontal" method="post" action="j_security_check">
-    <div class="control-group">
-    <label class="control-label" for="j_username">Email :</label>
-    <div class="controls">
-    <input type="text" id="j_username" name="j_username" placeholder="Email"/>
-    </div>
-    </div>
-    <div class="control-group">
-    <label class="control-label" for="j_password">Mot de Passe :</label>
-    <div class="controls">
-    <input type="password" id="j_password" name="j_password" placeholder="Password"/>
-    </div>
-    </div>
-    <div class="control-group">
-<div class="controls">
- <button type="submit" name="submit" class="btn">Valider</button>
- <button type="reset" name="reset" class="btn">Reset</button>
-</div>
-</div>
-    </form>
-</h:body>
+	<h:link></h:link>
+	<ui:composition template="/template/common/commonLayout.xhtml">
+
+		<ui:define name="content">
 
 
-</ui:define>
+			
+
+
+
+
+			<div class="col col-lg-4 col-offset-4 m-t-large">
+				<section class="panel">
+					<header class="panel-heading text-center"> Sign in </header>
+					<form class="padder" method="post" action="j_security_check">
+						<div class="block">
+							<label class="control-label">Email</label>
+							<input type="text" id="j_username" name="j_username" placeholder="test@example.com"/>
+						</div>
+						<div class="block">
+							<label class="control-label">Password</label> 
+							<input type="password" id="j_password" name="j_password"
+							placeholder="Password" />
+						</div>
+						<div class="checkbox">
+							<label> <input type="checkbox"/> Keep me logged in
+							</label>
+						</div>
+						<a href="#" class="pull-right m-t-mini"><small>Forgot
+								password?</small></a>
+						<button type="submit" name="submit" class="btn btn-info" >Valider</button>
+
+						<div class="line line-dashed"></div>
+
+
+					</form>
+				</section>
+			</div>
+
+
+
+
+		</ui:define>
 
 	</ui:composition>
 
