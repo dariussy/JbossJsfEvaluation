@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+	<h:link></h:link>
+	<ui:composition template="/template/common/commonLayout.xhtml">
+
+		<ui:define name="content">
+<h1>list Stagiaires</h1>
+
+
+<f:view>
+	<h:dataTable border="0" rules="all"
+		value="#{stagiaireControlleur.stagiaires}" var="s">
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="ID" />
+			</f:facet>
+			<h:outputText value="#{s.id}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Prénom" />
+			</f:facet>
+			<h:outputText value="#{s.prenom}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Nom" />
+			</f:facet>
+			<h:outputText value="#{s.nom}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Email" />
+			</f:facet>
+			<h:outputText value="#{s.email}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Update" />
+			</f:facet>
+			<h:form>
+				<h:commandButton value="Update"
+					action="#{stagiaireControlleur.doSelectUpdate}" />
+			</h:form>
+		</h:column>
+
+		<h:column>
+
+			<f:facet name="header">
+				<h:outputText value="delete" />
+			</f:facet>
+			<h:form>
+				<h:commandButton value="Supprimer"
+					action="#{stagiaireControlleur.doDelete}" />
+			</h:form>
+
+		</h:column>
+	</h:dataTable>
+</f:view>
+		</ui:define>
+
+	</ui:composition>
+
+</h:body>
+
+</html>

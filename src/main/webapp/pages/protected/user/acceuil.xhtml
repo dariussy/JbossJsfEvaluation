@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   template="/WEB-INF/templates/default.xhtml">
+   <ui:define name="content">
+      <h1>Acceuil user !</h1>
+
+    
+
+      <h:form id="reg">
+         <h2>Register (Bean Validation example)</h2>
+         <p>Enforces annotation-based constraints defined on the model class.</p>
+         <h:panelGrid columns="3" columnClasses="titleCell">
+            <h:outputLabel for="name" value="Name:"/>
+            <h:inputText id="name" value="#{newMember.name}" />
+            <h:message for="name" errorClass="invalid"/>
+
+            <h:outputLabel for="email" value="Email:"/>
+            <h:inputText id="email" value="#{newMember.email}"/>
+            <h:message for="email" errorClass="invalid"/>
+
+            <h:outputLabel for="phoneNumber" value="Phone #:"/>
+            <h:inputText id="phoneNumber" value="#{newMember.phoneNumber}"/>
+            <h:message for="phoneNumber" errorClass="invalid"/>
+         </h:panelGrid>
+      </h:form>
+      <h2>Members</h2>
+      
+   </ui:define>
+</ui:composition>
