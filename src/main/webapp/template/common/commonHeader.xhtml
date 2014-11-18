@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<body>
+	<ui:composition>
+
+		<ul class="nav navbar-nav navbar-avatar pull-right">
+			<li class="dropdown"><a href="#" class="dropdown-toggle"
+				data-toggle="dropdown"> <span class="hidden-sm-only">Mika
+						Sokeil</span> <span class="thumb-small avatar inline"><img
+						src="images/avatar.jpg" alt="Mika Sokeil" class="img-circle" /></span> <b
+					class="caret hidden-sm-only"></b>
+			</a>
+				<ul class="dropdown-menu">
+					<li><a href="signin.html">Logout</a></li>
+				</ul></li>
+		</ul>
+
+		<a class="navbar-brand" href="#">etp</a>
+
+
+		<ul class="nav navbar-nav hidden-sm">
+		<li class="dropdown shift" data-toggle="shift:appendTo"
+				data-target=".nav-primary .nav"><a href="#"
+				class="dropdown-toggle" data-toggle="dropdown"><i
+					class="icon-user icon-xlarge"></i>Administrateur
+					<b class="caret hidden-sm-only"></b></a>
+				<ul class="dropdown-menu">
+					<li>
+						<h:link outcome="editAdmin" >Create Admin</h:link>
+					</li>
+					<li class="visible-lg">
+						<h:link outcome="listAdmin" >Listes Admin</h:link>
+					</li>
+
+				</ul></li>
+		</ul>
+		
+		<ul class="nav navbar-nav hidden-sm">
+		<li class="dropdown shift" data-toggle="shift:appendTo"
+				data-target=".nav-primary .nav"><a href="#"
+				class="dropdown-toggle" data-toggle="dropdown"><i
+					class="icon-user icon-xlarge"></i>Stagiaire
+					<b class="caret hidden-sm-only"></b></a>
+				<ul class="dropdown-menu">
+					<li><h:link outcome="editStagiaire" >New Stagiaire</h:link></li>
+					<li class="visible-lg">
+					<h:link outcome="listStagiaire" >Listes Stagiaires</h:link>
+					</li>
+
+				</ul></li>
+		</ul>
+
+
+	</ui:composition>
+</body>
+</html>

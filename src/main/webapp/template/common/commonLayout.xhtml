@@ -1,0 +1,89 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>${param.title }</title>
+	<meta name="description" content="${param.title }" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<style>
+.file-input-wrapper {
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.file-input-wrapper input[type=file], .file-input-wrapper input[type=file]:focus,
+	.file-input-wrapper input[type=file]:hover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	z-index: 99;
+	outline: 0;
+}
+
+.file-input-name {
+	margin-left: 8px;
+}
+</style>
+	<h:outputStylesheet name="bootstrap.css"  library="css" />
+
+	<h:outputStylesheet name="font-awesome.min.css" library="css" />
+
+	<h:outputStylesheet name="plugin.css" library="css" />
+
+	<h:outputStylesheet name="style.css"  library="css" />
+
+
+
+	<!--[if lt IE 9]>
+    <link rel="stylesheet" href="<c:url value="/theme/Template-Admincss/ie.css"/>">
+    <script src="<c:url value="/theme/Template-Adminjs/ie/respond.min.js"/>"></script>
+    <script src="<c:url value="/theme/Template-Admin/js/ie/html5.js"/>"></script>
+    <script src="<c:url value="/theme/Template-Admin/js/ie/excanvas.js"/>"></script>
+  <![endif]-->
+
+
+
+
+</h:head>
+
+<h:body>
+
+	<header id="header" class="navbar navbar-sm bg bg-black">  
+				<ui:include src="/template/common/commonHeader.xhtml" />
+	</header>
+
+	<section id="content">
+   		 <section class="main bg-white" id="docs">
+   		 		<div class="clearfix padder">
+   		 			<ui:insert name="content"></ui:insert>
+					<ui:include src="/template/common/commonContent.xhtml" />
+				</div>
+		</section>
+	</section>
+	<footer id="footer">
+    	<div class="text-center padder clearfix">
+			<ui:insert name="footer">
+				<ui:include src="/template/common/commonFooter.xhtml" />
+			</ui:insert>
+		</div>
+	</footer>
+
+</h:body>
+
+<h:outputScript name="jquery-2.1.1.min.js" library="js"  />
+
+<h:outputScript name="bootstrap.min.js" library="js"  />
+
+	
+</html>
