@@ -5,58 +5,96 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<h:body><h:link></h:link>
+<h:body>
+	<h:link></h:link>
 	<ui:composition template="/template/common/commonLayout.xhtml">
-	
-<ui:define name="content">
+
+		<ui:define name="content">
+
+			<div class="col col-lg-7 col-offset-1 m-t-large">
+
+				<h:panelGroup
+					rendered="#{stagiaireControlleur.stagiaire.id == null}">
+					<div class="padder clearfix">
+						<h4>
+							<i class="icon-edit"></i>New Stagiaire <h:outputText value="#{stagiaireControlleur.stagiaire.id}"></h:outputText>
+						</h4>
+					</div>
+				</h:panelGroup>
+				<h:panelGroup
+					rendered="#{stagiaireControlleur.stagiaire.id != null}">
+					<div class="padder clearfix">
+						<h4>
+							<i class="icon-new"></i>Modif Stagiaire
+						</h4>
+					</div>
+				</h:panelGroup>
+
+				<section class="panel">
+					<h:form id="reg" styleClass="form-horizontal">
 
 
-			<h1>Create User</h1>
+						<h:inputHidden id="id"
+							value="#{stagiaireControlleur.stagiaire.id}" />
 
-			<p>User</p>
+						<div class="row">
+							<h:outputLabel styleClass="col col-lg-3 control-label" for="name"
+								value="Name:" />
+							<div class="col col-lg-8">
+								<h:inputText id="name" styleClass="parsley-validated"
+									value="#{stagiaireControlleur.stagiaire.nom}" required="true"
+									requiredMessage="#{msg['data.required']}"
+									converterMessage="ConvertMessage"
+									validatorMessage="validateMessage">
+									<f:validateLength minimum="4" />
+								</h:inputText>
+							</div>
+							<h:message for="name" errorClass="invalid" />
 
-			<h:form id="reg" >
-			
-			
-				<h:inputHidden id="id" value="#{stagiaireControlleur.stagiaire.id}" />
-				<h:panelGrid columns="3" columnClasses="titleCell">
-					<h:outputLabel for="name" value="Name:" />
-					<h:inputText id="name"  styleClass="bg-focus"
-						value="#{stagiaireControlleur.stagiaire.nom}" required="true"
-						requiredMessage="#{msg['data.required']}"
-						converterMessage="ConvertMessage"
-						validatorMessage="validateMessage">
-						<f:validateLength minimum="4" />
-					</h:inputText>
-					<h:message for="name" errorClass="invalid" />
+						</div>
 
-					<h:outputLabel for="firstname" value="firstname:" />
-					<h:inputText id="firstname"
-						value="#{stagiaireControlleur.stagiaire.prenom}" required="true"
-						requiredMessage="#{msg['data.required']}"
-						converterMessage="ConvertMessage"
-						validatorMessage="validateMessage">
-						<f:validateLength minimum="4" />
-					</h:inputText>
-					<h:message for="name" errorClass="invalid" />
+						<div class="row">
+							<h:outputLabel for="firstname"
+								styleClass="col col-lg-3 control-label" value="firstname:" />
+							<div class="col col-lg-8">
+								<h:inputText id="firstname" styleClass="parsley-validated"
+									value="#{stagiaireControlleur.stagiaire.prenom}"
+									required="true" requiredMessage="#{msg['data.required']}"
+									converterMessage="ConvertMessage"
+									validatorMessage="validateMessage">
+									<f:validateLength minimum="4" />
+								</h:inputText>
+							</div>
+							<h:message for="name" errorClass="invalid" />
+						</div>
 
-					<h:outputLabel for="dateNaissance" value="dateNaissance:" />
-					<h:inputText id="dateNaissance"
-						value="#{stagiaireControlleur.stagiaire.dateNaissance}"
-						requiredMessage="#{msg['data.required']}"
-						converterMessage="ConvertMessage"
-						validatorMessage="validateMessage">
-						<f:convertDateTime pattern="dd/MM/yyyy" />
-					</h:inputText>
-					<h:message for="name" errorClass="invalid" />
+						<div class="row">
+							<h:outputLabel for="dateNaissance"
+								styleClass="col col-lg-3 control-label" value="dateNaissance:" />
+							<div class="col col-lg-8">
+								<h:inputText id="dateNaissance" styleClass="parsley-validated"
+									value="#{stagiaireControlleur.stagiaire.dateNaissance}"
+									requiredMessage="#{msg['data.required']}"
+									converterMessage="ConvertMessage"
+									validatorMessage="validateMessage">
+									<f:convertDateTime pattern="dd/MM/yyyy" />
+								</h:inputText>
+							</div>
+							<h:message for="name" errorClass="invalid" />
+						</div>
 
-					<h:outputLabel for="email" value="Email:" />
-					<h:inputText id="email"
-						value="#{stagiaireControlleur.stagiaire.email}" required="true">
-						<f:validator validatorId="mailValidator" />
-					</h:inputText>
-					<h:message for="email" errorClass="invalid" />
-					<!-- 	
+						<div class="row">
+							<h:outputLabel for="email" value="Email:"
+								styleClass="col col-lg-3 control-label" />
+							<div class="col col-lg-8">
+								<h:inputText id="email" styleClass="parsley-validated"
+									value="#{stagiaireControlleur.stagiaire.email}" required="true">
+									<f:validator validatorId="mailValidator" />
+								</h:inputText>
+							</div>
+							<h:message for="email" errorClass="invalid" />
+						</div>
+						<!-- 	
 		
 		<h:outputLabel for="tel" value="tel" />
 		<h:inputText id="tel"
@@ -121,26 +159,32 @@
 		</h:inputText>
 		<h:message for="name" errorClass="invalid" /> -->
 
+						<div class="row">
 
-					<h:outputLabel for="password" value="Password:" />
-					<h:inputText id="password"
-						value="#{stagiaireControlleur.stagiaire.password}" required="true">
-						<f:validateLength minimum="4" maximum="15" />
-					</h:inputText>
-					<h:message for="password" errorClass="invalid" />
-				</h:panelGrid>
+							<h:outputLabel for="password" value="Password:"
+								styleClass="col col-lg-3 control-label" />
+							<div class="col col-lg-8">
+								<h:inputText id="password"
+									value="#{stagiaireControlleur.stagiaire.password}"
+									required="true">
+									<f:validateLength minimum="4" maximum="15" />
+								</h:inputText>
+							</div>
+							<h:message for="password" errorClass="invalid" />
 
-				<p>
-					<h:panelGrid columns="2">
-						<h:commandButton id="register"
-							action="#{stagiaireControlleur.doSave}" value="Register" />
+						</div>
+						<div class="row">
+							<div class="col col-lg-9 col-offset-3">
+								<h:commandButton id="register" styleClass="btn btn-primary"
+									action="#{stagiaireControlleur.doSave}" value="Save" />
+							</div>
+						</div>
 						<h:messages styleClass="messages" errorClass="invalid"
 							infoClass="valid" warnClass="warning" globalOnly="true" />
-					</h:panelGrid>
-				</p>
-			</h:form>
-
-</ui:define>
+					</h:form>
+				</section>
+			</div>
+		</ui:define>
 
 	</ui:composition>
 

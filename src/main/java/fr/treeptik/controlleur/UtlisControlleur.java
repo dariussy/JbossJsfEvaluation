@@ -17,4 +17,19 @@ public class UtlisControlleur {
 		return sessionBean.logout();
 	}
 
+	public boolean isUserRole() {
+		return sessionBean.isOnRoleUser();
+	}
+
+	public boolean isAdminRole() {
+		return sessionBean.isOnRoleAdmin();
+	}
+
+	public String userName() {
+		return sessionBean.getUserName();
+	}
+
+	public boolean isloged() {
+		return sessionBean.isloged();
+	}
 }

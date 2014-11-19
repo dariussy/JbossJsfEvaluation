@@ -20,29 +20,33 @@
 	  </application> 
 	  
 	  
-	<navigation-rule>
-		<from-view-id></from-view-id>
-		<navigation-case>
-			<from-outcome>logout</from-outcome>
-			<to-view-id>/pages/public/login.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-	
 	
 	 <navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
 			<from-action>#{utlisControlleur.logout}</from-action>
 			<from-outcome>login</from-outcome>
-			<to-view-id>/pages/public/login.xhtml</to-view-id>
+			<to-view-id>pages/protected/user/acceuil.xhtm</to-view-id>
+			<redirect/>
 		</navigation-case>
     </navigation-rule>	
+    
+    
 
 
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
+			<from-outcome>linkeditStagiaire</from-outcome>
+			<to-view-id>/pages/protected/user/editStagiaire.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/pages/protected/user/listStagiaire.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{stagiaireControlleur.doSelectUpdate}</from-action>
 			<from-outcome>editStagiaire</from-outcome>
 			<to-view-id>/pages/protected/user/editStagiaire.xhtml</to-view-id>
 			<redirect />
@@ -52,7 +56,7 @@
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
-			<from-outcome>listStagiaire</from-outcome>
+			<from-outcome>linklistStagiaire</from-outcome>
 			<to-view-id>/pages/protected/user/listStagiaire.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
@@ -61,7 +65,7 @@
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
-			<from-outcome>editAdmin</from-outcome>
+			<from-outcome>linkeditAdmin</from-outcome>
 			<to-view-id>/pages/protected/admin/editAdmin.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
@@ -70,10 +74,20 @@
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
-			<from-outcome>listAdmin</from-outcome>
+			<from-outcome>linklistAdmin</from-outcome>
 			<to-view-id>/pages/protected/admin/listAdmin.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	
+<!-- 	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>linkMenuLogout</from-outcome>
+			
+			<to-view-id>#{utlisControlleur.logout()}</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule> -->
 
 </faces-config>

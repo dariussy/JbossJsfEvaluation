@@ -21,6 +21,12 @@
 				<section class="panel">
 					<header class="panel-heading text-center"> Acceuil </header>
 					
+					<h:panelGroup rendered="#{( utlisControlleur.isUserRole() ) or ( utlisControlleur.isAdminRole() )  }">
+						<h:link styleClass="btn btn-primary" outcome="listStagiaire" >Listes Stagiaires</h:link>
+					</h:panelGroup>
+					<h:panelGroup rendered="#{utlisControlleur.isAdminRole()}">
+						<h:link styleClass="btn btn-danger"  outcome="listAdmin" >Listes Admin</h:link>
+					</h:panelGroup>
 				</section>
 			</div>
 

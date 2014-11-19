@@ -54,6 +54,7 @@ public class StagiaireControlleur {
 
 	public String doSelectUpdate() {
 		stagiaire = (Stagiaire) stagiaires.getRowData();
+		System.out.println(stagiaire);
 		return "editStagiaire";
 	}
 

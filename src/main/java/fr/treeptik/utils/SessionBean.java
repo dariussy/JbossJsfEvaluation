@@ -24,9 +24,9 @@ package fr.treeptik.utils;
 import java.io.Serializable;
 
 import javax.ejb.Stateless;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -35,7 +35,7 @@ import javax.servlet.http.HttpServletRequest;
  * @version 1.0
  */
 @Stateless
-@SessionScoped
+@RequestScoped
 public class SessionBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -54,16 +54,23 @@ public class SessionBean implements Serializable {
 	 *         {@literal index.xhtml} page.
 	 */
 	public String logout() {
-		// FacesContext facesContext = FacesContext.getCurrentInstance();
-		// ExternalContext externalContext = facesContext.getExternalContext();
-		// externalContext.invalidateSession();
-		try {
-			getRequest().logout();
-		} catch (ServletException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		ExternalContext externalContext = facesContext.getExternalContext();
+		externalContext.invalidateSession();
+		// getRequest().logout();
 		return "login";
+	}
+
+	public String getUserName() {
+		if (getRequest().getUserPrincipal() != null)
+			return getRequest().getUserPrincipal().getName();
+		return "notLoged";
+	}
+
+	public boolean isloged() {
+		if (getRequest().getUserPrincipal() != null)
+			return true;
+		return false;
 	}
 
 	public HttpServletRequest getRequest() {

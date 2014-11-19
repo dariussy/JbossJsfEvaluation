@@ -41,7 +41,7 @@ public abstract class GenericJPADAO<T, P> implements GenericDAO<T, P> {
 
 	public void remove(T entite) throws DAOException {
 		try {
-			// entite = entityManager.merge(entite);
+			entite = entityManager.merge(entite);
 			entityManager.remove(entite);
 		} catch (Exception e) {
 			throw new DAOException("GenericJPADAO remove" + entite, e);
