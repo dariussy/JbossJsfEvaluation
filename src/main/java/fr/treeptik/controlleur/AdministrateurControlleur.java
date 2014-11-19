@@ -18,6 +18,7 @@ import fr.treeptik.service.impl.AdministateurServiceImpl;
 public class AdministrateurControlleur {
 
 	private Administrateur administrateur = new Administrateur();
+
 	@EJB
 	private AdministateurServiceImpl serviceAdmin;
 

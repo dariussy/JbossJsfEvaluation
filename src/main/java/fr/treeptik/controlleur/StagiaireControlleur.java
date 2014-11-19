@@ -12,7 +12,6 @@ import javax.faces.model.ListDataModel;
 import fr.treeptik.exception.ServiceException;
 import fr.treeptik.model.Stagiaire;
 import fr.treeptik.service.impl.StagiaireServiceImpl;
-import fr.treeptik.utils.SessionBean;
 
 @ManagedBean
 @RequestScoped
@@ -21,9 +20,6 @@ public class StagiaireControlleur {
 
 	@EJB
 	private StagiaireServiceImpl stagiaireService;
-
-	@EJB
-	private SessionBean sessionBean;
 
 	// **********LISTES*****************************************************
 	private List<Stagiaire> listStagiaire = new ArrayList<Stagiaire>();
