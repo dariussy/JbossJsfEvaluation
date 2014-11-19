@@ -22,10 +22,12 @@ public class StagiaireServiceImpl {
 
 	public User saveStagiaire(Stagiaire entite) throws ServiceException {
 		try {
-			if (entite.getId() != null) {
+			if (entite.getId() != null && entite.getId() != 0) {
 				entite = dao.update(entite);
+				System.out.println("Update Mail Stagiaire" + entite);
 			} else {
-
+				entite.setId(null);
+				System.out.println("envoi mail" + entite);
 				entite = dao.add(entite);
 				mailUtils.mailSenderToStagiaire(entite);
 			}

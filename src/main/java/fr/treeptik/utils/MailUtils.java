@@ -33,6 +33,7 @@ public class MailUtils {
 					+ "Vos identifiants : \n Login : " + stagiaire.getEmail()
 					+ "\n Password : " + stagiaire.getPassword());
 			Transport.send(msg);
+			System.out.println("mailenvoi");
 		} catch (MessagingException e) {
 			e.printStackTrace();
 		}
