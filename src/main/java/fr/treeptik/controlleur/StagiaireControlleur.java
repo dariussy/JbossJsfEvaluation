@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 
@@ -14,7 +14,7 @@ import fr.treeptik.model.Stagiaire;
 import fr.treeptik.service.impl.StagiaireServiceImpl;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class StagiaireControlleur {
 	private Stagiaire stagiaire = new Stagiaire();
 

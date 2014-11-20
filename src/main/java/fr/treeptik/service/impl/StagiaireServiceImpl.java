@@ -1,5 +1,7 @@
 package fr.treeptik.service.impl;
 
+import java.math.BigInteger;
+import java.security.SecureRandom;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -25,6 +27,7 @@ public class StagiaireServiceImpl {
 				entite = dao.update(entite);
 			} else {
 				entite.setId(null);
+				entite.setPassword(generatePassword());
 				entite = dao.add(entite);
 				// mailUtils.mailSenderToStagiaire(entite);
 			}
@@ -61,6 +64,11 @@ public class StagiaireServiceImpl {
 			throw new ServiceException("getALLStagiaires", e);
 		}
 		return stagiaires;
+	}
+
+	public String generatePassword() {
+		SecureRandom random = new SecureRandom();
+		return new BigInteger(130, random).toString(32).substring(0, 10);
 	}
 
 }

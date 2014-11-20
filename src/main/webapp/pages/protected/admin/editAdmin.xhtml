@@ -74,8 +74,10 @@
 							<div class="col col-lg-8">
 								<h:inputText id="email"
 									value="#{administrateurControlleur.administrateur.email}"
-									required="true">
-									<f:validator validatorId="mailValidator" />
+									required="true"
+									validator="#{mailValidator.validate}">
+									<f:attribute name="idUser"
+										value="#{administrateurControlleur.administrateur.id}" />
 								</h:inputText>
 
 								<h:message for="email" errorClass="invalid" />
