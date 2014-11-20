@@ -11,59 +11,108 @@
 
 		<ui:define name="content">
 
+			<div class="col col-lg-7  m-t-large">
 
-			<h1>Create Admin</h1>
 
-			<h:form id="reg">
-				<h:inputHidden id="id"
-					value="#{administrateurControlleur.administrateur.id}" />
-				<h:panelGrid columns="3" columnClasses="titleCell">
-					<h:outputLabel for="name" value="Name:" />
-					<h:inputText id="nom"
-						value="#{administrateurControlleur.administrateur.nom}"
-						required="true" requiredMessage="#{msg['data.required']}"
-						converterMessage="ConvertMessage"
-						validatorMessage="validateMessage">
-						<f:validateLength minimum="4" />
-					</h:inputText>
-					<h:message for="name" errorClass="invalid" />
+				<h:panelGroup
+					rendered="#{administrateurControlleur.administrateur.id == null}">
+					<div class="padder clearfix">
+						<h4>
+							<i class="icon-plus-sign-alt"></i>New Administrateur
+							<h:outputText value="#{stagiaireControlleur.stagiaire.id}"></h:outputText>
+						</h4>
+					</div>
+				</h:panelGroup>
+				<h:panelGroup
+					rendered="#{administrateurControlleur.administrateur.id != null}">
+					<div class="padder clearfix">
+						<h4>
+							<i class="icon-edit"></i>Modif Administrateur
+						</h4>
+					</div>
+				</h:panelGroup>
 
-					<h:outputLabel for="firstname" value="firstname:" />
-					<h:inputText id="firstname"
-						value="#{administrateurControlleur.administrateur.prenom}"
-						required="true" requiredMessage="#{msg['data.required']}"
-						converterMessage="ConvertMessage"
-						validatorMessage="validateMessage">
-						<f:validateLength minimum="4" />
-					</h:inputText>
-					<h:message for="name" errorClass="invalid" />
+				<section class="panel">
 
-					<h:outputLabel for="email" value="Email:" />
-					<h:inputText id="email"
-						value="#{administrateurControlleur.administrateur.email}"
-						required="true">
-						<f:validator validatorId="mailValidator" />
-					</h:inputText>
-					<h:message for="email" errorClass="invalid" />
+					<h:form id="reg" styleClass="form-horizontal">
 
-					<h:outputLabel for="password" value="Password:" />
-					<h:inputText id="password"
-						value="#{administrateurControlleur.administrateur.password}"
-						required="true">
-						<f:validateLength minimum="4" maximum="15" />
-					</h:inputText>
-					<h:message for="password" errorClass="invalid" />
-				</h:panelGrid>
+						<h:inputHidden id="id"
+							value="#{administrateurControlleur.administrateur.id}" />
 
-				<p>
-					<h:panelGrid columns="2">
-						<h:commandButton id="register" styleClass="btn btn-small btn-info"
-							action="#{administrateurControlleur.doSave}" value="Register" />
-						<h:messages styleClass="messages" errorClass="invalid"
-							infoClass="valid" warnClass="warning" globalOnly="true" />
-					</h:panelGrid>
-				</p>
-			</h:form>
+						<div class="row">
+							<h:outputLabel for="nom" value="Name:"
+								styleClass="col col-lg-3 control-label" />
+							<div class="col col-lg-8">
+								<h:inputText id="nom"
+									value="#{administrateurControlleur.administrateur.nom}"
+									required="true" requiredMessage="#{msg['data.required']}"
+									converterMessage="ConvertMessage"
+									validatorMessage="validateMessage">
+									<f:validateLength minimum="4" />
+								</h:inputText>
+								<h:message for="name" errorClass="invalid" />
+							</div>
+						</div>
+
+						<div class="row">
+							<h:outputLabel for="firstname" value="firstname:"
+								styleClass="col col-lg-3 control-label" />
+							<div class="col col-lg-8">
+								<h:inputText id="firstname"
+									value="#{administrateurControlleur.administrateur.prenom}"
+									required="true" requiredMessage="#{msg['data.required']}"
+									converterMessage="ConvertMessage"
+									validatorMessage="validateMessage">
+									<f:validateLength minimum="4" />
+								</h:inputText>
+							</div>
+							<h:message for="name" errorClass="invalid" />
+						</div>
+						<div class="row">
+							<h:outputLabel for="email" value="Email:"
+								styleClass="col col-lg-3 control-label" />
+							<div class="col col-lg-8">
+								<h:inputText id="email"
+									value="#{administrateurControlleur.administrateur.email}"
+									required="true">
+									<f:validator validatorId="mailValidator" />
+								</h:inputText>
+
+								<h:message for="email" errorClass="invalid" />
+							</div>
+						</div>
+						<div class="row">
+
+							<h:outputLabel for="password" value="Password:"
+								styleClass="col col-lg-3 control-label" />
+							<div class="col col-lg-8">
+								<h:inputText id="password"
+									value="#{administrateurControlleur.administrateur.password}"
+									required="true">
+									<f:validateLength minimum="4" maximum="15" />
+								</h:inputText>
+								<h:message for="password" errorClass="invalid" />
+							</div>
+						</div>
+
+
+
+						<div class="row">
+							<div class="col col-lg-9 col-offset-3">
+								<h:commandButton id="register"
+									styleClass="btn btn-small btn-info"
+									action="#{administrateurControlleur.doSave}" value="Save" />
+								<h:messages styleClass="messages" errorClass="invalid"
+									infoClass="valid" warnClass="warning" globalOnly="true" />
+							</div>
+						</div>
+
+
+					</h:form>
+
+				</section>
+
+			</div>
 
 		</ui:define>
 

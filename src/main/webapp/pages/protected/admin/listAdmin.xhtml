@@ -10,60 +10,71 @@
 	<ui:composition template="/template/common/commonLayout.xhtml">
 
 		<ui:define name="content">
-			<h1>list Admin</h1>
+		<p/>
+			<section class="panel">
 
+				<header class="panel-heading">
+					<i class="icon-list"></i> list Administrateur 
+				</header>
+				<div class="pull-out">
+					<f:view>
+						<h:dataTable 
+							styleClass="table table-striped datagrid m-b-small"
+							value="#{administrateurControlleur.administrateurs}" var="a">
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="ID" />
+								</f:facet>
+								<h:outputText value="#{a.id}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Prénom" />
+								</f:facet>
+								<h:outputText value="#{a.prenom}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Nom" />
+								</f:facet>
+								<h:outputText value="#{a.nom}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Email" />
+								</f:facet>
+								<h:outputText value="#{a.email}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Modifier" />
+								</f:facet>
+								<h:form>
+									<h:commandLink action="#{administrateurControlleur.doSelectUpdate}" >
+										<i class="icon-edit-sign icon-xlarge"></i>
+									</h:commandLink>
+								</h:form>
+								
+								
+							</h:column>
 
-			<f:view>
-				<h:dataTable border="0" rules="all"
-					value="#{administrateurControlleur.administrateurs}" var="a">
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="ID" />
-						</f:facet>
-						<h:outputText value="#{a.id}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="Prénom" />
-						</f:facet>
-						<h:outputText value="#{a.prenom}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="Nom" />
-						</f:facet>
-						<h:outputText value="#{a.nom}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="Email" />
-						</f:facet>
-						<h:outputText value="#{a.email}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="Update" />
-						</f:facet>
-						<h:form>
-							<h:commandButton value="Update"
-								action="#{administrateurControlleur.doSelectUpdate}" />
-						</h:form>
-					</h:column>
+							<h:column>
 
-					<h:column>
+								<f:facet name="header">
+									<h:outputText value="Supprimer" />
+								</f:facet>
+								<h:form>
+									<h:commandLink 
+										action="#{administrateurControlleur.doDelete}" >
+									<i class="icon-remove icon-xlarge text-danger text"></i>
+									</h:commandLink>
+								</h:form>
 
-						<f:facet name="header">
-							<h:outputText value="delete" />
-						</f:facet>
-						<h:form>
-							<h:commandButton value="Supprimer"
-								action="#{administrateurControlleur.doDelete}" />
-						</h:form>
-
-					</h:column>
-				</h:dataTable>
-			</f:view>
-
+							</h:column>
+						</h:dataTable>
+					</f:view>
+				</div>
+			</section>
 
 		</ui:define>
 

@@ -10,26 +10,23 @@ import fr.treeptik.exception.DAOException;
 import fr.treeptik.exception.ServiceException;
 import fr.treeptik.model.Stagiaire;
 import fr.treeptik.model.User;
-import fr.treeptik.utils.MailUtils;
 
 @Stateless
 public class StagiaireServiceImpl {
 	@EJB
 	public StagiaireDAO dao;
 
-	@EJB
-	public MailUtils mailUtils;
+	// @EJB
+	// public MailUtils mailUtils;
 
 	public User saveStagiaire(Stagiaire entite) throws ServiceException {
 		try {
 			if (entite.getId() != null && entite.getId() != 0) {
 				entite = dao.update(entite);
-				System.out.println("Update Mail Stagiaire" + entite);
 			} else {
 				entite.setId(null);
-				System.out.println("envoi mail" + entite);
 				entite = dao.add(entite);
-				mailUtils.mailSenderToStagiaire(entite);
+				// mailUtils.mailSenderToStagiaire(entite);
 			}
 		} catch (DAOException e) {
 			throw new ServiceException("saveStagiaire", e);

@@ -10,59 +10,75 @@
 	<ui:composition template="/template/common/commonLayout.xhtml">
 
 		<ui:define name="content">
-<h1>list Stagiaires</h1>
 
 
-<f:view>
-	<h:dataTable border="0" rules="all"
-		value="#{stagiaireControlleur.stagiaires}" var="s">
-		<h:column>
-			<f:facet name="header">
-				<h:outputText value="ID" />
-			</f:facet>
-			<h:outputText value="#{s.id}" />
-		</h:column>
-		<h:column>
-			<f:facet name="header">
-				<h:outputText value="Prénom" />
-			</f:facet>
-			<h:outputText value="#{s.prenom}" />
-		</h:column>
-		<h:column>
-			<f:facet name="header">
-				<h:outputText value="Nom" />
-			</f:facet>
-			<h:outputText value="#{s.nom}" />
-		</h:column>
-		<h:column>
-			<f:facet name="header">
-				<h:outputText value="Email" />
-			</f:facet>
-			<h:outputText value="#{s.email}" />
-		</h:column>
-		<h:column>
-			<f:facet name="header">
-				<h:outputText value="Update" />
-			</f:facet>
-			<h:form>
-				<h:commandButton value="Update"
-					action="#{stagiaireControlleur.doSelectUpdate}" />
-			</h:form>
-		</h:column>
+			<p />
+			<section class="panel">
 
-		<h:column>
+				<header class="panel-heading">
+					<i class="icon-list"></i> list Stagiaires
+				</header>
+				<div class="pull-out">
 
-			<f:facet name="header">
-				<h:outputText value="delete" />
-			</f:facet>
-			<h:form>
-				<h:commandButton value="Supprimer"
-					action="#{stagiaireControlleur.doDelete}" />
-			</h:form>
 
-		</h:column>
-	</h:dataTable>
-</f:view>
+					<f:view>
+						<h:dataTable border="0" styleClass="table table-striped datagrid m-b-small"
+							value="#{stagiaireControlleur.stagiaires}" var="s">
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="ID" />
+								</f:facet>
+								<h:outputText value="#{s.id}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Prénom" />
+								</f:facet>
+								<h:outputText value="#{s.prenom}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Nom" />
+								</f:facet>
+								<h:outputText value="#{s.nom}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Email" />
+								</f:facet>
+								<h:outputText value="#{s.email}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Update" />
+								</f:facet>
+								<h:form>
+									<h:commandLink 
+										action="#{stagiaireControlleur.doSelectUpdate}" >
+										<i class="icon-edit-sign icon-xlarge"></i>
+									</h:commandLink>
+								</h:form>
+							</h:column>
+
+							<h:column>
+
+								<f:facet name="header">
+									<h:outputText value="delete" />
+								</f:facet>
+								<h:form>
+									<h:commandLink 
+										action="#{stagiaireControlleur.doDelete}" >
+									<i class="icon-remove icon-xlarge text-danger text"></i>
+									</h:commandLink>
+									
+								</h:form>
+
+							</h:column>
+						</h:dataTable>
+					</f:view>
+
+				</div>
+			</section>
 		</ui:define>
 
 	</ui:composition>

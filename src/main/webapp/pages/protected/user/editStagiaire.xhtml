@@ -11,13 +11,13 @@
 
 		<ui:define name="content">
 
-			<div class="col col-lg-7 col-offset-1 m-t-large">
+			<div class="col col-lg-7  m-t-large">
 
 				<h:panelGroup
 					rendered="#{stagiaireControlleur.stagiaire.id == null}">
 					<div class="padder clearfix">
 						<h4>
-							<i class="icon-edit"></i>New Stagiaire <h:outputText value="#{stagiaireControlleur.stagiaire.id}"></h:outputText>
+							<i class="icon-plus-sign-alt"></i>New Stagiaire <h:outputText value="#{stagiaireControlleur.stagiaire.id}"></h:outputText>
 						</h4>
 					</div>
 				</h:panelGroup>
@@ -25,7 +25,7 @@
 					rendered="#{stagiaireControlleur.stagiaire.id != null}">
 					<div class="padder clearfix">
 						<h4>
-							<i class="icon-new"></i>Modif Stagiaire
+							<i class="icon-edit"></i>Modif Stagiaire
 						</h4>
 					</div>
 				</h:panelGroup>
