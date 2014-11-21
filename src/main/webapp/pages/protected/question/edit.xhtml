@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+	<h:link></h:link>
+	<ui:composition template="/template/common/commonLayout.xhtml">
+
+		<ui:define name="content">
+
+			<div class="col col-lg-7  m-t-large">
+
+				<h:panelGroup
+					rendered="#{questionControlleur.question.id == null}">
+					<div class="padder clearfix">
+						<h4>
+							<i class="icon-plus-sign-alt"></i>New Question
+							<h:outputText value="#{questionControlleur.question.id}"></h:outputText>
+						</h4>
+					</div>
+				</h:panelGroup>
+				<h:panelGroup
+					rendered="#{questionControlleur.question.id != null}">
+					<div class="padder clearfix">
+						<h4>
+							<i class="icon-edit"></i>Modif Question
+						</h4>
+					</div>
+				</h:panelGroup>
+
+				<section class="panel">
+					<h:form id="reg" styleClass="form-horizontal">
+
+
+						<h:inputHidden id="id"
+							value="#{questionControlleur.question.id}" />
+
+						<div class="row">
+							<h:outputLabel styleClass="col col-lg-3 control-label" for="name"
+								value="Name:" />
+							<div class="col col-lg-8">
+								<h:inputText id="question" styleClass="parsley-validated"
+									value="#{questionControlleur.question.libelle}" required="true"
+									requiredMessage="#{msg['data.required']}"
+									converterMessage="ConvertMessage"
+									validatorMessage="validateMessage">
+									<f:validateLength minimum="4" />
+								</h:inputText>
+							</div>
+							<h:message for="question" errorClass="invalid" />
+
+						</div>
+
+						
+						<div class="row">
+							<div class="col col-lg-9 col-offset-3">
+								<h:commandButton id="register" styleClass="btn btn-primary"
+									action="#{questionControlleur.doSave}" value="Save" />
+							</div>
+						</div>
+						<!-- <h:messages styleClass="messages" errorClass="invalid"
+							infoClass="valid" warnClass="warning" globalOnly="true" /> -->
+					</h:form>
+				</section>
+			</div>
+		</ui:define>
+
+	</ui:composition>
+
+</h:body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

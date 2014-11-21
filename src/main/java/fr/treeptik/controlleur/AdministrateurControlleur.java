@@ -11,7 +11,8 @@ import javax.faces.model.ListDataModel;
 
 import fr.treeptik.exception.ServiceException;
 import fr.treeptik.model.Administrateur;
-import fr.treeptik.service.impl.AdministateurServiceImpl;
+import fr.treeptik.service.AdministateurService;
+import fr.treeptik.utils.SessionBean;
 
 @ManagedBean
 @RequestScoped
@@ -20,7 +21,10 @@ public class AdministrateurControlleur {
 	private Administrateur administrateur = new Administrateur();
 
 	@EJB
-	private AdministateurServiceImpl serviceAdmin;
+	private AdministateurService serviceAdmin;
+
+	@EJB
+	private SessionBean sessionBean;
 
 	// **********LISTES*****************************************************
 	private List<Administrateur> listAdministrateur = new ArrayList<Administrateur>();
@@ -53,6 +57,12 @@ public class AdministrateurControlleur {
 
 	public String doSelectUpdate() {
 		administrateur = (Administrateur) administrateurs.getRowData();
+		System.out.println("idAdmin : " + administrateur);
+		return "editAdmin";
+	}
+
+	public String doPrepareCreate() {
+		administrateur = new Administrateur();
 		return "editAdmin";
 	}
 
@@ -90,11 +100,11 @@ public class AdministrateurControlleur {
 		this.administrateur = administrateur;
 	}
 
-	public AdministateurServiceImpl getService() {
+	public AdministateurService getService() {
 		return serviceAdmin;
 	}
 
-	public void setService(AdministateurServiceImpl service) {
+	public void setService(AdministateurService service) {
 		this.serviceAdmin = service;
 	}
 

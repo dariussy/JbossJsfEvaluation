@@ -12,15 +12,20 @@ import fr.treeptik.exception.DAOException;
 import fr.treeptik.exception.ServiceException;
 import fr.treeptik.model.Stagiaire;
 import fr.treeptik.model.User;
+import fr.treeptik.service.StagiaireService;
 
 @Stateless
-public class StagiaireServiceImpl {
+public class StagiaireServiceImpl implements StagiaireService {
 	@EJB
 	public StagiaireDAO dao;
 
 	// @EJB
 	// public MailUtils mailUtils;
 
+	/* (non-Javadoc)
+	 * @see fr.treeptik.service.impl.StagiaireService#saveStagiaire(fr.treeptik.model.Stagiaire)
+	 */
+	@Override
 	public User saveStagiaire(Stagiaire entite) throws ServiceException {
 		try {
 			if (entite.getId() != null && entite.getId() != 0) {
@@ -37,6 +42,10 @@ public class StagiaireServiceImpl {
 		return entite;
 	}
 
+	/* (non-Javadoc)
+	 * @see fr.treeptik.service.impl.StagiaireService#removeStagiaire(fr.treeptik.model.Stagiaire)
+	 */
+	@Override
 	public void removeStagiaire(Stagiaire entite) throws ServiceException {
 		try {
 
@@ -46,6 +55,10 @@ public class StagiaireServiceImpl {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see fr.treeptik.service.impl.StagiaireService#getStagiaireById(java.lang.Integer)
+	 */
+	@Override
 	public User getStagiaireById(Integer id) throws ServiceException {
 		User u = null;
 		try {
@@ -56,6 +69,10 @@ public class StagiaireServiceImpl {
 		return u;
 	}
 
+	/* (non-Javadoc)
+	 * @see fr.treeptik.service.impl.StagiaireService#getALLStagiaires()
+	 */
+	@Override
 	public List<Stagiaire> getALLStagiaires() throws ServiceException {
 		List<Stagiaire> stagiaires = null;
 		try {
@@ -66,6 +83,10 @@ public class StagiaireServiceImpl {
 		return stagiaires;
 	}
 
+	/* (non-Javadoc)
+	 * @see fr.treeptik.service.impl.StagiaireService#generatePassword()
+	 */
+	@Override
 	public String generatePassword() {
 		SecureRandom random = new SecureRandom();
 		return new BigInteger(130, random).toString(32).substring(0, 10);

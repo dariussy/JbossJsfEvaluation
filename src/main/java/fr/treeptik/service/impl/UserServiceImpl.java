@@ -16,6 +16,7 @@ public class UserServiceImpl implements UserService {
 	@EJB
 	public UserDAO dao;
 
+	@Override
 	public User saveUser(User entite) throws ServiceException {
 		try {
 			if (entite.getId() != null) {
@@ -29,6 +30,7 @@ public class UserServiceImpl implements UserService {
 		return entite;
 	}
 
+	@Override
 	public void removeUser(User entite) throws ServiceException {
 		try {
 			dao.remove(entite);
@@ -37,6 +39,7 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
+	@Override
 	public User getUser(Integer id) throws ServiceException {
 		User u = null;
 		try {
@@ -47,6 +50,7 @@ public class UserServiceImpl implements UserService {
 		return u;
 	}
 
+	@Override
 	public List<User> getALLUsers() throws ServiceException {
 		List<User> users = null;
 		try {
@@ -57,6 +61,7 @@ public class UserServiceImpl implements UserService {
 		return users;
 	}
 
+	@Override
 	public Integer exist(String email, Integer id) throws ServiceException {
 		Integer nb;
 		nb = dao.CountEmailUseWithoutId(email, id);

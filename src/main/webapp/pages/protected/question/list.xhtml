@@ -10,73 +10,66 @@
 	<ui:composition template="/template/common/commonLayout.xhtml">
 
 		<ui:define name="content">
-		<p/>
+
+
+			<p />
 			<section class="panel">
 
 				<header class="panel-heading">
-					<i class="icon-list"></i> list Administrateur 
+					<i class="icon-list"></i> list Questions
 				</header>
 				<div class="pull-out">
+
+
 					<f:view>
-						<h:dataTable 
-							styleClass="table table-striped datagrid m-b-small"
-							value="#{administrateurControlleur.administrateurs}" var="a">
+						<h:dataTable border="0" styleClass="table table-striped datagrid m-b-small"
+							value="#{questionControlleur.questions}" var="s">
 							<h:column>
 								<f:facet name="header">
 									<h:outputText value="ID" />
 								</f:facet>
-								<h:outputText value="#{a.id}" />
+								<h:outputText value="#{s.id}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">
-									<h:outputText value="Prénom" />
+									<h:outputText value="Libelle" />
 								</f:facet>
-								<h:outputText value="#{a.prenom}" />
+								<h:outputText value="#{s.libelle}" />
 							</h:column>
+							
 							<h:column>
 								<f:facet name="header">
-									<h:outputText value="Nom" />
-								</f:facet>
-								<h:outputText value="#{a.nom}" />
-							</h:column>
-							<h:column>
-								<f:facet name="header">
-									<h:outputText value="Email" />
-								</f:facet>
-								<h:outputText value="#{a.email}" />
-							</h:column>
-							<h:column>
-								<f:facet name="header">
-									<h:outputText value="Modifier" />
-								</f:facet>
-								<h:form>
-									
-									<h:commandLink action="#{administrateurControlleur.doSelectUpdate}" >
-										update
-									</h:commandLink>
-								</h:form>
-								
-								
-							</h:column>
-
-							<h:column>
-
-								<f:facet name="header">
-									<h:outputText value="Supprimer" />
+									<h:outputText value="Update" />
 								</f:facet>
 								<h:form>
 									<h:commandLink 
-										action="#{administrateurControlleur.doDelete}" >
+										action="#{questionControlleur.doSelectUpdate}" >
+										<i class="icon-edit-sign icon-xlarge"></i>
+									</h:commandLink>
+								</h:form>
+							</h:column>
+
+							<h:column>
+
+								<f:facet name="header">
+									<h:outputText value="delete" />
+								</f:facet>
+								<h:form>
+									<h:commandLink 
+										action="#{questionControlleur.doDelete}" >
 									<i class="icon-remove icon-xlarge text-danger text"></i>
 									</h:commandLink>
+									
 								</h:form>
 
 							</h:column>
 						</h:dataTable>
 					</f:view>
+					
+					<h:link styleClass="btn btn-primary pull-right" outcome="linkEditQuestion" ><i class="icon-plus"></i>  New Question</h:link>
+
 				</div>
 			</section>
-
 		</ui:define>
 
 	</ui:composition>

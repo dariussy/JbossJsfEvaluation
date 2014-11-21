@@ -71,6 +71,42 @@
 		</navigation-case>
 	</navigation-rule>
 	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>linkListQuestion</from-outcome>
+			<to-view-id>/pages/protected/question/list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>linkEditQuestion</from-outcome>
+			<to-view-id>/pages/protected/question/edit.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>linkListFormation</from-outcome>
+			<to-view-id>/pages/protected/formation/list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>linkEditFormation</from-outcome>
+			<to-view-id>/pages/protected/formation/edit.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
 <!-- 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>

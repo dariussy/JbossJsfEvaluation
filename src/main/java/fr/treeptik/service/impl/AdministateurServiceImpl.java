@@ -9,13 +9,14 @@ import fr.treeptik.dao.AdministrateurDAO;
 import fr.treeptik.exception.DAOException;
 import fr.treeptik.exception.ServiceException;
 import fr.treeptik.model.Administrateur;
-import fr.treeptik.model.User;
+import fr.treeptik.service.AdministateurService;
 
 @Stateless
-public class AdministateurServiceImpl {
+public class AdministateurServiceImpl implements AdministateurService {
 	@EJB
 	public AdministrateurDAO dao;
 
+	@Override
 	public Administrateur saveAdministrateur(Administrateur entite)
 			throws ServiceException {
 		try {
@@ -30,6 +31,7 @@ public class AdministateurServiceImpl {
 		return entite;
 	}
 
+	@Override
 	public void removeAdministrateur(Administrateur entite)
 			throws ServiceException {
 		try {
@@ -39,9 +41,10 @@ public class AdministateurServiceImpl {
 		}
 	}
 
-	public User getAdministrateurById(Integer id)
+	@Override
+	public Administrateur getAdministrateurById(Integer id)
 			throws ServiceException {
-		User u = null;
+		Administrateur u = null;
 		try {
 			u = dao.findByPk(id);
 		} catch (DAOException e) {
@@ -50,6 +53,7 @@ public class AdministateurServiceImpl {
 		return u;
 	}
 
+	@Override
 	public List<Administrateur> getALLAdministrateurs() throws ServiceException {
 		List<Administrateur> administrateurs = null;
 		try {

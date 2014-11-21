@@ -36,7 +36,8 @@ xmlns:f="http://java.sun.com/jsf/core"
 					<b class="caret hidden-sm-only"></b></a>
 				<ul class="dropdown-menu">
 					<li>
-						<h:link outcome="linkeditAdmin" >Create Admin</h:link>
+						<h:link outcome="#{administrateurControlleur.doPrepareCreate()}" >
+						Create Admin</h:link>
 					</li>
 					<li class="visible-lg">
 						<h:link outcome="linklistAdmin" >Listes Admin</h:link>
@@ -57,6 +58,25 @@ xmlns:f="http://java.sun.com/jsf/core"
 					<li><h:link outcome="linkeditStagiaire" >New Stagiaire</h:link></li>
 					<li class="visible-lg">
 					<h:link outcome="linklistStagiaire" >Listes Stagiaires</h:link>
+					</li>
+
+				</ul></li>
+		</ul>
+		</h:panelGroup>
+		
+		<h:panelGroup rendered="#{( utlisControlleur.isUserRole() ) or ( utlisControlleur.isAdminRole() )  }">
+		<ul class="nav navbar-nav hidden-sm">
+		<li class="dropdown shift" data-toggle="shift:appendTo"
+				data-target=".nav-primary .nav"><a href="#"
+				class="dropdown-toggle" data-toggle="dropdown"><i
+					class="icon-flag icon-xlarge"></i>Utils
+					<b class="caret hidden-sm-only"></b></a>
+				<ul class="dropdown-menu">
+					<li class="visible-lg">
+						<h:link outcome="linkListQuestion" >Listes Questions</h:link>
+					</li>
+					<li class="visible-lg">
+						<h:link outcome="linkListFormation" >Listes Formations</h:link>
 					</li>
 
 				</ul></li>

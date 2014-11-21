@@ -11,7 +11,7 @@ import javax.faces.model.ListDataModel;
 
 import fr.treeptik.exception.ServiceException;
 import fr.treeptik.model.Stagiaire;
-import fr.treeptik.service.impl.StagiaireServiceImpl;
+import fr.treeptik.service.StagiaireService;
 
 @ManagedBean
 @SessionScoped
@@ -19,7 +19,7 @@ public class StagiaireControlleur {
 	private Stagiaire stagiaire = new Stagiaire();
 
 	@EJB
-	private StagiaireServiceImpl stagiaireService;
+	private StagiaireService stagiaireService;
 
 	// **********LISTES*****************************************************
 	private List<Stagiaire> listStagiaire = new ArrayList<Stagiaire>();
@@ -46,6 +46,11 @@ public class StagiaireControlleur {
 			e.printStackTrace();
 		}
 		return "listStagiaire";
+	}
+
+	public String doPrepareCreate() {
+		stagiaire = new Stagiaire();
+		return "edit";
 	}
 
 	public String doSelectUpdate() {
